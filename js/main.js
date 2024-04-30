@@ -47,16 +47,52 @@
 // MILESTONE #4
 // Spostate alcuni elementi in funzioni, ad esempio la creazione del quadrato e/o l'event listener.
 
+// // seleziono il div grid che conterrà le colonne
+// let grid = document.getElementById(`grid`);
+// let div = `div`;
+// let classeCol = `col`;
+// let classeColore = `bg`;
+// // ciclo for
+// for (let i = 1; i <= 100; i++) {
+// 	// ad ogni click viene richiamata funzione che crea una colonna con numero e la colora
+// 	let elementoDiv = creaColonna(i, grid, div, classeCol, classeColore);
+// }
+// // funzione per creare colonna dentro ad un div e ne scrive il numero dentro ad un ciclo ed al click viene colorata o tolto il colore//
+// function creaColonna(numero, griglia, element, classe1, classe2) {
+// 	let elementoDiv = document.createElement(element);
+// 	elementoDiv.innerText = `${numero}`;
+// 	griglia.append(elementoDiv);
+// 	elementoDiv.classList.add(classe1);
+// 	// aggiungo evento di click
+// 	elementoDiv.addEventListener(`click`, function () {
+// 		// aggiungo o rimuovo classe per colore di sfondo colonna
+// 		elementoDiv.classList.toggle(classe2);
+// 		console.log(`Hai cliccato sulla casella numero: ${numero}`);
+// 	});
+// 	return elementoDiv;
+// }
+
+// BONUS #2: CAPIRE EVENTI E FUNZIONI
+// Provate a eseguire quanto fatto fin qui NON al caricamento della pagina, ma al click su un pulsante "Avvia gioco".
+
 // seleziono il div grid che conterrà le colonne
 let grid = document.getElementById(`grid`);
+// creo variabili da usare come paramentri nella funzione
 let div = `div`;
 let classeCol = `col`;
 let classeColore = `bg`;
-// ciclo for
-for (let i = 1; i <= 100; i++) {
-	// ad ogni click viene richiamata funzione che crea una colonna con numero e la colora
-	let elementoDiv = creaColonna(i, grid, div, classeCol, classeColore);
-}
+
+// seleziono bottone
+let btnStart = document.getElementById(`start`);
+// aggiungo eventlistener
+btnStart.addEventListener(`click`, function () {
+	// ciclo for
+	for (let i = 1; i <= 100; i++) {
+		// ad ogni click viene richiamata funzione che crea una colonna con numero e la colora
+		let elementoDiv = creaColonna(i, grid, div, classeCol, classeColore);
+	}
+});
+
 // funzione per creare colonna dentro ad un div e ne scrive il numero dentro ad un ciclo ed al click viene colorata o tolto il colore//
 function creaColonna(numero, griglia, element, classe1, classe2) {
 	let elementoDiv = document.createElement(element);
