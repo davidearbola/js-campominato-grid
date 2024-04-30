@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-	width: 1000px;
+	max-width: 100%;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -21,12 +21,39 @@ body {
 	flex-wrap: wrap;
 }
 
-.col {
+.col-10 {
 	width: calc(100% / 10);
+	height: 100px;
+	border: 1px solid red;
+}
+
+.col-9 {
+	width: calc(100% / 9);
+	height: 100px;
+	border: 1px solid red;
+}
+
+.col-7 {
+	width: calc(100% / 7);
 	height: 100px;
 	border: 1px solid red;
 }
 
 .bg {
 	background-color: red;
+}
+
+.w-1000 {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.w-700 {
+	width: 700px;
+	margin: 0 auto;
+}
+
+.w-900 {
+	width: 900px;
+	margin: 0 auto;
 }
