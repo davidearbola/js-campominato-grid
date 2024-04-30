@@ -175,15 +175,21 @@ btnStart.addEventListener(`click`, function () {
 
 // funzione per creare colonna dentro ad un div e ne scrive il numero dentro ad un ciclo ed al click viene colorata o tolto il colore//
 function creaColonna(numero, griglia, element, classe1, classe2) {
+	// creo elemento
 	let elementoDiv = document.createElement(element);
+	// scrivo numero dentro ad elemento
 	elementoDiv.innerText = `${numero}`;
+	// inserisco elemento dentro al div selezionato
 	griglia.append(elementoDiv);
+	// aggiungo classe che crea colonna
 	elementoDiv.classList.add(classe1);
 	// aggiungo evento di click
 	elementoDiv.addEventListener(`click`, function () {
 		// aggiungo o rimuovo classe per colore di sfondo colonna
 		elementoDiv.classList.toggle(classe2);
+		// stampo in console numero della colonna cliccata
 		console.log(`Hai cliccato sulla casella numero: ${numero}`);
 	});
+	// restituisco risultato della funzione al chiamante
 	return elementoDiv;
 }
