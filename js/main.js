@@ -160,7 +160,7 @@ function creaColonna(griglia, element, classe1, classe2, ncelle) {
 			// se la cella è vuota
 			if (elementoDiv.innerHTML == "") {
 				// stampo
-				elementoDiv.innerHTML = `${i}`;
+				elementoDiv.innerHTML = i;
 				// altrimenti
 			} else {
 				// svuoto
