@@ -19,23 +19,25 @@ body {
 .row {
 	display: flex;
 	flex-wrap: wrap;
+	width: 600px;
+	margin: 0 auto;
 }
 
 .col-10 {
 	width: calc(100% / 10);
-	height: 100px;
+	aspect-ratio: 1;
 	border: 1px solid red;
 }
 
 .col-9 {
 	width: calc(100% / 9);
-	height: 100px;
+	aspect-ratio: 1;
 	border: 1px solid red;
 }
 
 .col-7 {
 	width: calc(100% / 7);
-	height: 100px;
+	aspect-ratio: 1;
 	border: 1px solid red;
 }
 
@@ -43,17 +45,17 @@ body {
 	background-color: red;
 }
 
-.w-1000 {
-	width: 1000px;
+/* .w-1000 {
+	width: 600px;
 	margin: 0 auto;
 }
 
 .w-700 {
-	width: 700px;
+	width: 600px;
 	margin: 0 auto;
 }
 
 .w-900 {
-	width: 900px;
+	width: 600px;
 	margin: 0 auto;
-}
+} */

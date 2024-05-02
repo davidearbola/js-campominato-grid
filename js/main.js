@@ -128,68 +128,46 @@ let classeColore = `bg`;
 let btnStart = document.getElementById(`start`);
 // aggiungo eventlistener
 btnStart.addEventListener(`click`, function () {
+	// svuoto la griglia
+	grid.innerHTML = "";
 	// prendo il valore della select
 	let valoreSelect = document.getElementById(`difficulty`).value;
-	// if per controllare il valore delle select in base al valore farò dei cicli con parametri diversi
-	if (valoreSelect == `easy`) {
-		for (let i = 1; i <= 100; i++) {
-			// aggiungo classe per width a grid
-			grid.classList.add(`w-1000`);
-			// ad ogni click viene richiamata funzione che crea una colonna con numero e la colora
-			let elementoDiv = creaColonna(
-				i,
-				grid,
-				div,
-				classeCol10,
-				classeColore
-			);
-		}
-	} else if (valoreSelect == `medium`) {
-		for (let i = 1; i <= 81; i++) {
-			// aggiungo classe per width a grid
-			grid.classList.add(`w-900`);
-			// ad ogni click viene richiamata funzione che crea una colonna con numero e la colora
-			let elementoDiv = creaColonna(
-				i,
-				grid,
-				div,
-				classeCol9,
-				classeColore
-			);
-		}
-	} else if (valoreSelect == `hard`) {
-		for (let i = 1; i <= 49; i++) {
-			// aggiungo classe per width a grid
-			grid.classList.add(`w-700`);
-			// ad ogni click viene richiamata funzione che crea una colonna con numero e la colora
-			let elementoDiv = creaColonna(
-				i,
-				grid,
-				div,
-				classeCol7,
-				classeColore
-			);
-		}
+	// if per controllare il valore delle select in base al valore richiamo funzione con parametri diversi
+	if (valoreSelect == `100`) {
+		creaColonna(grid, div, classeCol10, classeColore, valoreSelect);
+	} else if (valoreSelect == `81`) {
+		creaColonna(grid, div, classeCol9, classeColore, valoreSelect);
+	} else if (valoreSelect == `49`) {
+		creaColonna(grid, div, classeCol7, classeColore, valoreSelect);
 	}
 });
 
-// funzione per creare colonna dentro ad un div e ne scrive il numero dentro ad un ciclo ed al click viene colorata o tolto il colore//
-function creaColonna(numero, griglia, element, classe1, classe2) {
-	// creo elemento
-	let elementoDiv = document.createElement(element);
-	// scrivo numero dentro ad elemento
-	elementoDiv.innerText = `${numero}`;
-	// inserisco elemento dentro al div selezionato
-	griglia.append(elementoDiv);
-	// aggiungo classe che crea colonna
-	elementoDiv.classList.add(classe1);
-	// aggiungo evento di click
-	elementoDiv.addEventListener(`click`, function () {
-		// aggiungo o rimuovo classe per colore di sfondo colonna
-		elementoDiv.classList.toggle(classe2);
-		// stampo in console numero della colonna cliccata
-		console.log(`Hai cliccato sulla casella numero: ${numero}`);
-	});
-	// restituisco risultato della funzione al chiamante
-	return elementoDiv;
+// funzione che crea ciclo for per creare le griglie diverse in base alla difficoltà scelta dall'utente
+function creaColonna(griglia, element, classe1, classe2, ncelle) {
+	// creo ciclo for con valore select
+	for (let i = 1; i <= ncelle; i++) {
+		// creo elemento
+		let elementoDiv = document.createElement(element);
+		// inserisco elemento dentro al div selezionato
+		griglia.append(elementoDiv);
+		// aggiungo classe che crea colonna
+		elementoDiv.classList.add(classe1);
+		// aggiungo evento di click
+		elementoDiv.addEventListener(`click`, function () {
+			// aggiungo o rimuovo classe per colore di sfondo colonna
+			elementoDiv.classList.toggle(classe2);
+			// faccio controllo per stampare o rimuovere numero dentro alle celle
+			// se la cella è vuota
+			if (elementoDiv.innerHTML == "") {
+				// stampo
+				elementoDiv.innerHTML = `${i}`;
+				// altrimenti
+			} else {
+				// svuoto
+				elementoDiv.innerHTML = "";
+			}
+			// stampo in console numero della colonna cliccata
+			console.log(`Hai cliccato sulla casella numero: ${i}`);
+		});
+	}
 }
